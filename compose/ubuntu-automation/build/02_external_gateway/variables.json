@@ -1,0 +1,17 @@
+{
+  "ubuntu_ova_url": "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.ova",
+  "ubuntu_ova_path": "/root/focal-server-cloudimg-amd64.ova",
+  "networks": {
+    "nsx": {
+      "nsx_external": {
+        "max_mtu": 1700
+      },
+      "nsx_overlay_edge": {
+        "max_mtu": 1700
+      },
+      "nsx_overlay": {
+        "max_mtu": 1700
+      }
+    }
+  }
+}

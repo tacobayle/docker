@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    image: mongo:6.0.3
+    container_name: mongoDb
+    restart: always
+    privileged: true
+    volumes:
+      - ./mongodbData:/data/db
+      - $HOME/.docker/config.json:/root/.docker/config.json
+    ports:
+      - "27017:27017"
+    networks:
+      - migrationToolsNetwork
+
+  migrationTools:
+    image: projects.registry.vmware.com/avi-migrationtools/avimigrationtools:1.9.2-5081
+    container_name: migrationTools
+    privileged: true
+    restart: always
+    hostname: migrationTools
+    volumes:
+      - ./uploads:/server/uploads
+      - $HOME/.docker/config.json:/root/.docker/config.json
+    networks:
+      - migrationToolsNetwork
+    ports:
+      - "8080:3000"  # Map your application's port to host port
+    depends_on:
+      - db
+
+networks:
+  migrationToolsNetwork:

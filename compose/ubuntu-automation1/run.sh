@@ -1,0 +1,1 @@
+cd ~ ; docker image rm tacobayle/ubuntu-automation1 ; docker image rm ubuntu-automation1 ; cd ~/docker/ubuntu-automation1 ; docker build -t ubuntu-automation1 . ; docker login ; docker tag ubuntu-automation1:latest tacobayle/ubuntu-automation1:latest ; docker push tacobayle/ubuntu-automation1:latest
